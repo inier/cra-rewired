@@ -20,8 +20,12 @@ function getWebpackAlias(pkgJSON) {
     ["@assets"]: resolve("src/assets"),
     // 项目组件目录别名
     ["@components"]: resolve("src/components"),
+    // constants目录别名
+    ["@constants"]: resolve("src/constants"),
     // layouts目录别名
     ["@layouts"]: resolve("src/layouts"),
+    // hooks目录别名
+    ["@hooks"]: resolve("src/hooks"),
     // modules目录别名
     ["@modules"]: resolve("src/modules"),
     // pages目录别名
@@ -34,14 +38,10 @@ function getWebpackAlias(pkgJSON) {
     ["@mock"]: resolve("src/mock"),
     // utils目录别名
     ["@utils"]: resolve("src/utils"),
-    // style公共配置文件别名，包括mixins和utils等
+    // style通用配置文件别名，包括mixins和utils等
     ["@settings"]: resolve("src/settings.scss"),
     // 路由配置文件别名
     ["@routerConfig"]: resolve("src/routerConfig.js"),
-    // style目录别名
-    ["@style"]: resolve("style"),
-    // style样式重置文件别名
-    ["@reset"]: resolve("style/_reset.scss"),
     // 主题名称，根据当前项目使用的主题而定
     ["@theme"]: resolve(`node_modules/${theme}`),
     // lodash库别名
