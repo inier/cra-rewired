@@ -31,6 +31,7 @@ function getTheme({ buildConfig }) {
       `请在 package.json 中配置
             "buildConfig":{
                 "theme": {
+                    "ice": "@icedesign/xxx",
                     "alifd": "@alifd/xxx",
                 }
             }`

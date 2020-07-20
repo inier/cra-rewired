@@ -1,6 +1,11 @@
 // == PRERENDER SPA PLUGIN == //
-const prerender = () => (config) => {
+const prerender = ({
+  routes = ["/"],
+  staticDir = "build",
+  outputDir = "build/prerendered",
+}) => (config) => {
   const { resolve, checkCLIOptions } = require("./utils");
+
   if (
     process.env.NODE_ENV !== "production" ||
     !checkCLIOptions("--prerender")
@@ -13,9 +18,9 @@ const prerender = () => (config) => {
   config.plugins.push(
     new PrerenderSPAPlugin({
       // Index.html is in the root directory.
-      staticDir: resolve("build"),
-      routes: ["/", "/list", "/base"],
-      outputDir: resolve("build/prerendered"),
+      staticDir: resolve(staticDir),
+      routes: routes,
+      outputDir: resolve(outputDir),
       // Optional minification.
       minify: {
         collapseBooleanAttributes: true,
