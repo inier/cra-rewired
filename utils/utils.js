@@ -3,7 +3,7 @@ const path = require("path");
 
 const resolve = (str) => {
   //return path.join(paths.appPath, str);
-  return path.resolve(process.cwd(), "./", str);
+  return path.resolve(process.cwd(), str);
 };
 
 /**

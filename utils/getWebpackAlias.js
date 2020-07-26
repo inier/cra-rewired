@@ -43,7 +43,7 @@ function getWebpackAlias(pkgJSON) {
     // 路由配置文件别名
     ["@routerConfig"]: resolve("src/routerConfig.js"),
     // 主题名称，根据当前项目使用的主题而定
-    ["@theme"]: resolve(`node_modules/${theme}`),
+    ["@theme"]: theme,
     // lodash库别名
     ["lodash-es"]: "lodash",
   };

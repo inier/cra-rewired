@@ -1,7 +1,7 @@
 // 提取第三方库（暂停用）
-// const extractVendors = require('./utils/extractVendors');
+const extractVendors = require('./utils/extractVendors');
 // 检查命令行是否带有某个参数
-const { checkCLIOptions } = require("./utils/utils");
+const { getTheme, checkCLIOptions } = require("./utils/utils");
 // 抽出第三方库的配置
 const getVendorConfig = require("./utils/getVendorConfig");
 // 构建显示优化
@@ -32,15 +32,19 @@ const optimizeMoment = require("./utils/optimizeMoment");
 const rewireThemeIce = require("./utils/rewire-theme-ice");
 // Fusion组件按需加载（@alifd/next）
 const rewireThemeFusion = require("./utils/rewire-theme-fusion");
+// 合并自定义规则和CRA默认规则
+const useEslintConfig = require("./utils/useEslintConfig");
 
 module.exports = {
-  // extractVendors,
+  extractVendors,
+  resolve,
+  getTheme,
   checkCLIOptions,
   buildFriendly,
   speedMeasure,
   prerender,
   rewireReactHotLoader,
-  getWebpackAlias,  
+  getWebpackAlias,
   vConsole,
   addStylelint,
   minimizer,
@@ -51,4 +55,5 @@ module.exports = {
   rewireThemeIce,
   rewireThemeFusion,
   getVendorConfig,
+  useEslintConfig,
 };

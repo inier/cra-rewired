@@ -1,5 +1,5 @@
 // 提取第三方库（暂停用）
-const extractVendors = () => (config) => {
+const extractVendors = (configPath = "src/vendorConfig.js") => (config) => {
   if (process.env.NODE_ENV !== "production") {
     return config;
   }
@@ -8,7 +8,7 @@ const extractVendors = () => (config) => {
   const { resolve } = require("./utils");
 
   //从根目录获取
-  const appVendorsPath = resolve("src/vendorConfig.js");
+  const appVendorsPath = resolve(configPath);
 
   const tExtractVendors = () => {
     if (!fs.existsSync(appVendorsPath)) {

@@ -12,3 +12,37 @@ yarn start/build 参数：
 - --prerender 启用骨架屏
 - --smp 启用打包速度分析
 - --debug 启用 vConsole
+
+### bug 记录
+
+// customize-cra 1.0 及以前部分版本对于 eslint 的引入存在自定义不生效的 bug，通过 useEslintConfig 方法覆盖 CRA 默认的 eslint 规则
+
+```
+useEslintConfig(require('./.eslintrc.js')),
+```
+
+# 支持 antd-mobile 的 less 样式覆盖
+
+```
+// antd-mobile.js
+module.export = {
+    // antd-mobile的less变量
+}
+
+```
+
+```
+// config-overrides.js
+
+const antdMobileTheme = require(getTheme(pkgJSON)["antd-mobile"]) || {};
+module.exports = override(
+    ...
+    addLessLoader({
+        lessOptions: {
+            modifyVars: antdMobileTheme,
+            javascriptEnabled: true,
+        },
+    }),
+    ...
+);
+```

@@ -22,10 +22,10 @@
     "webpack-simple-progress-plugin": "^0.0.4"
   },
   "peerDependencies": {
-    "webpack": "^4.x",
+    "moment": "^2.x",
     "node-sass": "^4.x",
     "stylelint": "^13.x",
-    "moment": "^2.x"
+    "webpack": "^4.x"
   },
   "repository": {
     "type": "git",
@@ -40,5 +40,11 @@
   "bugs": {
     "url": "https://github.com/inier/cra-rewired/issues"
   },
-  "homepage": "https://github.com/inier/cra-rewired#readme"
+  "homepage": "https://github.com/inier/cra-rewired#readme",
+  "devDependencies": {
+    "moment": "^2.27.0",
+    "node-sass": "^4.14.1",
+    "stylelint": "^13.6.1",
+    "webpack": "^4.44.0"
+  }
 }
