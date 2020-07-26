@@ -1,7 +1,7 @@
 // 提取第三方库（暂停用）
-const extractVendors = require('./utils/extractVendors');
+const extractVendors = require("./utils/extractVendors");
 // 检查命令行是否带有某个参数
-const { getTheme, checkCLIOptions } = require("./utils/utils");
+const { resolve, getTheme, checkCLIOptions } = require("./utils/utils");
 // 抽出第三方库的配置
 const getVendorConfig = require("./utils/getVendorConfig");
 // 构建显示优化
