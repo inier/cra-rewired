@@ -1,4 +1,9 @@
-function getWebpackAlias(pkgJSON) {
+/**
+ * 设置webpack Alias
+ * @param {*} pkgJSON 默认引入的项目的package.json
+ * @param {*} extConfig 自定义的alias集合
+ */
+function getWebpackAlias(pkgJSON, extConfig = {}) {
   // 从指定对象中获取theme相关配置
   const { resolve, getTheme } = require("./utils");
   const themeObj = getTheme(pkgJSON);
@@ -9,43 +14,49 @@ function getWebpackAlias(pkgJSON) {
     theme = themeObj.alifd;
   }
 
+  // resolve传入的自定义alias
+  const extAlias = {};
+  Object.keys(extConfig).forEach((key) => {
+    extAlias[key] = resolve(extConfig[key]);
+  });
+
   // webpack alias
-  /* eslint-disable no-useless-computed-key */
   return {
     // src目录别名
-    ["@"]: resolve("src"),
+    "@": resolve("src"),
     // api目录别名：接口相关
-    ["@api"]: resolve("src/api"),
+    "@api": resolve("src/api"),
     // 项目公共资源目录别名
-    ["@assets"]: resolve("src/assets"),
+    "@assets": resolve("src/assets"),
     // 项目组件目录别名
-    ["@components"]: resolve("src/components"),
+    "@components": resolve("src/components"),
     // constants目录别名
-    ["@constants"]: resolve("src/constants"),
+    "@constants": resolve("src/constants"),
     // layouts目录别名
-    ["@layouts"]: resolve("src/layouts"),
+    "@layouts": resolve("src/layouts"),
     // hooks目录别名
-    ["@hooks"]: resolve("src/hooks"),
+    "@hooks": resolve("src/hooks"),
     // modules目录别名
-    ["@modules"]: resolve("src/modules"),
+    "@modules": resolve("src/modules"),
     // pages目录别名
-    ["@pages"]: resolve("src/pages"),
+    "@pages": resolve("src/pages"),
     // routes目录别名
-    ["@routes"]: resolve("src/routes"),
+    "@routes": resolve("src/routes"),
     // stores目录别名
-    ["@stores"]: resolve("src/stores"),
+    "@stores": resolve("src/stores"),
     // mock目录别名：模拟数据相关
-    ["@mock"]: resolve("src/mock"),
+    "@mock": resolve("src/mock"),
     // utils目录别名
-    ["@utils"]: resolve("src/utils"),
+    "@utils": resolve("src/utils"),
     // style通用配置文件别名，包括mixins和utils等
-    ["@settings"]: resolve("src/settings.scss"),
+    "@settings": resolve("src/settings.scss"),
     // 路由配置文件别名
-    ["@routerConfig"]: resolve("src/routerConfig.js"),
+    "@routerConfig": resolve("src/routerConfig.js"),
     // 主题名称，根据当前项目使用的主题而定
-    ["@theme"]: theme,
+    "@theme": theme,
     // lodash库别名
-    ["lodash-es"]: "lodash",
+    "lodash-es": "lodash",
+    ...extAlias,
   };
 }
 

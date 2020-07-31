@@ -1,6 +1,6 @@
 // moduleIds和chunkIds固化，优化webpack4的名称变动问题
 
-const NamedOptimize = () => (config) => {
+const NamedOptimize = (options = {}) => (config) => {
   if (process.env.NODE_ENV !== "production") {
     return config;
   }
@@ -9,10 +9,10 @@ const NamedOptimize = () => (config) => {
   const hash = require("hash-sum");
 
   // 固化moduleIds
-  config.optimization.moduleIds = "hashed";
+  config.optimization.moduleIds = options.moduleIds || "hashed";
 
   // 固化chunkIds
-  config.optimization.chunkIds = "named";
+  config.optimization.chunkIds = options.chunkIds || "named";
 
   // 在使用路由懒加载的情况下，chunkIds='named'方式无效，手动修复
   const seen = new Set();

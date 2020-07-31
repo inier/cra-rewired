@@ -3,6 +3,7 @@ const prerender = ({
   routes = ["/"],
   staticDir = "build",
   outputDir = "build/prerendered",
+  ...restOptions
 }) => (config) => {
   const { resolve, checkCLIOptions } = require("./utils");
 
@@ -29,10 +30,10 @@ const prerender = ({
         keepClosingSlash: true,
         sortAttributes: true,
       },
-
       renderer: new Renderer({
         renderAfterTime: 500,
       }),
+      ...restOptions,
     })
   );
 

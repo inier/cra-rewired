@@ -1,7 +1,6 @@
 // 合并自定义规则和CRA默认规则
 // 解决customize-cra 0.9.1 对于eslint的引入存在自定义不生效的bug
-
-const useEslintConfig = (configRules) => (config) => {
+const useEslintConfig = (eslintConfig) => (config) => {
   const updatedRules = config.module.rules.map((rule) => {
     // Only target rules that have defined a `useEslintrc` parameter in their options
     if (
@@ -14,7 +13,7 @@ const useEslintConfig = (configRules) => (config) => {
       const newOptions = {
         useEslintrc: false,
         ignore: true,
-        baseConfig: { ...baseConfig, ...configRules },
+        baseConfig: { ...baseConfig, ...eslintConfig },
       };
       ruleUse.options = newOptions;
 

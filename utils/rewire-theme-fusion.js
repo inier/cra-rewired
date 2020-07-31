@@ -1,6 +1,9 @@
-// fusion主题包应用
-// https://fusion.design/help.html?spm=fusion-design.home-design-fusion.0.0.7fa84aa0bqwu17#/dev-use-package
-
+/**
+ * fusion主题包应用
+ * @link https://fusion.design/help.html?spm=fusion-design.home-design-fusion.0.0.7fa84aa0bqwu17#/dev-use-package
+ * @param {*} pkgJSON 默认引入的项目的package.json
+ * @param {*} options fusion rewired配置 
+ */
 const rewireThemeFusion = (
   pkgJSON,
   options = { modifyVars: {}, fast: true }

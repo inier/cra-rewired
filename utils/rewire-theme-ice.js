@@ -1,5 +1,5 @@
 // 自动引入飞冰业务组件
-const rewireThemeIce = (pkgJSON, modifyVars) => (config) => {
+const rewireThemeIce = (pkgJSON, options = {}) => (config) => {
   // 从指定对象中获取theme相关配置
   const { getTheme } = require("./utils");
   // 飞冰主题加载相关
@@ -14,6 +14,7 @@ const rewireThemeIce = (pkgJSON, modifyVars) => (config) => {
         {
           // ICE 业务组件
           libraryName: new RegExp(`${theme.ice.split("/")[0]}\/.*`),
+          ...options,
         },
       ])
     );
