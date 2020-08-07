@@ -19,7 +19,7 @@ const vConsole = require("./utils/vConsole");
 // dropConsole
 const dropConsole = require("./utils/dropConsole");
 // 增加stylelint
-const addStylelint = require("./utils/addStyleLint");
+const addStylelint = require("./utils/addStylelint");
 // 代码优化压缩: 在react-scripts 3.4.0的基础上增加了去除console的功能
 const minimizer = require("./utils/minimizer");
 // moduleIds和chunkIds固化
