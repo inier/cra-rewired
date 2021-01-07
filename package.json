@@ -1,6 +1,6 @@
 {
   "name": "@ozo/cra-rewired",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "react-scripts rewired.",
   "main": "index.js",
   "scripts": {
